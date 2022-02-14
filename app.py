@@ -55,12 +55,25 @@ async def on_message(message):
 )
         return await message.channel.send(response.choices[0].text)
 
+    elif message.content.startswith('!b'):
+        text = message.content[2:]
+        response = openai.Completion.create(
+  engine="text-davinci-001",
+  prompt = text,
+  temperature=0.5,
+  max_tokens=60,
+  top_p=0.3,
+  frequency_penalty=1,
+  presence_penalty=0.5
+)
+        return await message.channel.send(response.choices[0].text)
+    
     else:
         if random.random() <= 0.5:
             return
         response = openai.Completion.create(
   engine="text-davinci-001",
-  prompt = message.content,
+  prompt = text,
   temperature=0.5,
   max_tokens=60,
   top_p=0.3,
