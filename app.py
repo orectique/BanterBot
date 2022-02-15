@@ -73,7 +73,7 @@ async def on_message(message):
             return
         response = openai.Completion.create(
   engine="text-davinci-001",
-  prompt = text,
+  prompt = message.content,
   temperature=0.5,
   max_tokens=60,
   top_p=0.3,
