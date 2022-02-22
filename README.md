@@ -1,2 +1,2 @@
 # ChatterBot
- A bot to simulaet active conversation in a Discord channel.
+ A bot to stimulate active conversation in a Discord channel.
